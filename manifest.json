@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "Change Arial",
+  "description": "Changes Arial font face to Calibri in webpages on Windows based machines.",
+  "version": "1.0.1",
+
+  "permissions": [
+    "tabs",
+	"*://*/*"
+  ],
+  "background": {
+    "scripts": [
+	]
+  },
+  "browser_action": {
+  },
+  "content_scripts": [
+    {
+      "matches": [
+	    "http://*/*",
+		"https://*/*",
+		"*://*/*"
+	  ],
+      "js": [
+	    "jquery-2.0.0.min.js",
+		"content_script.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
