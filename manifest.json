@@ -24,6 +24,7 @@
 	  ],
       "js": [
 	    "jquery-2.0.0.min.js",
+		"jquery.caret.js",
 		"content_script.js"
       ],
       "run_at": "document_start",

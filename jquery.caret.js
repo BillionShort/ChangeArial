@@ -1,6 +1,6 @@
 (function($,len,createRange,duplicate){
 	$.fn.caret=function(options,opt2){
-		var start,end,t=this[0],browser=$.browser.msie;
+		var start,end,t=this[0];//browser=$.browser.msie;
 		if(typeof options==="object" && typeof options.start==="number" && typeof options.end==="number") {
 			start=options.start;
 			end=options.end;
@@ -18,7 +18,7 @@
 			}
 		}
 		if(typeof start!="undefined"){
-			if(browser){
+			if(/*browser*/false){
 				var selRange = this[0].createTextRange();
 				selRange.collapse(true);
 				selRange.moveStart('character', start);
@@ -32,7 +32,7 @@
 			return this
 		} else {
 			// Modification as suggested by Андрей Юткин
-           if(browser){
+           if(/*browser*/false){
                 if (this[0].tagName.toLowerCase() != "textarea") {
                     var val = this.val(),
 					selection=document.selection,
