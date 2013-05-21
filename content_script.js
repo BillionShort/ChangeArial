@@ -1,4 +1,4 @@
-$(document).ready(function(e) {
+$(document).ready(function(eventObject) {
     //$(document.body).css("font-family", $(document.body).css("font-family").replace("Arial", "Calibri"));
     $(document).children().each(updateFont);
 	function updateFont() {
@@ -24,14 +24,12 @@ $(document).ready(function(e) {
 	
 	//$(".chatmsg").keyup(encool);
 	$(document).keyup(function(event) {
-	    //alert(event.which);
 		encool(event);
 	});
 	
 	var modify = true;
 	var music = false;
 	var _rustify = false;
-	var caret_pos = 0;
 	 
 	function encool(e) {
         if(e.keyCode == 66 && e.ctrlKey == true) {
@@ -49,7 +47,8 @@ $(document).ready(function(e) {
 		if(modify == false || typeof modify == "undefined") return;
 		
 		var _changedString = '';
-		caret_pos = $("textarea.chatmsg").caret().start;
+		var caret_start = $("textarea.chatmsg").caret().start;
+		var caret_end = $("textarea.chatmsg").caret().end;
 		if(modify == true && _rustify == false)
 		    _changedString = change($("textarea.chatmsg").val());
 		else _changedString = rustify($("textarea.chatmsg").val());
@@ -61,7 +60,7 @@ $(document).ready(function(e) {
 			music = false;
 		}
 		$("textarea.chatmsg").val(_changedString);
-		$("textarea.chatmsg").caret(caret_pos, caret_pos);
+		$("textarea.chatmsg").caret(caret_start, caret_end);
     }
     var normal = 'abcdefghijklmnopqrstuvwxyz';
     var changed = '\u1D00\u0299\u1D04\u1D05\u1D07\u0493\u0262\u029C\u026A\u1D0A\u1D0B\u029F\u1D0D\u0274\u1D0F\u1D18\u01EB\u0280s\u1D1B\u1D1C\u1D20\u1D21xy\u1D22'; //\u028F\u1D22';
